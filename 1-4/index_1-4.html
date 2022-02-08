@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <input type="text" id="input" v-model="message">
+    <p>The value of message is {{ message }}</p>
+    <hr>
+    <ul>
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
+    <input type="text" v-model="newName">
+    <button id="button" v-on:click="addName">Add Name</button>
+  </div>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+  <script>
+  var app = new Vue({
+    el: '#root',
+    data: {
+      message: 'Hello World',
+      newName: '',
+      names: ['Joe', 'Jane', 'Jim', 'Jade']
+    },
+    methods: {
+      addName(){
+        this.names.push(this.newName);
+        this.newName = '';
+      }
+    }
+  })
+  </script>
+</body>
+</html>
